@@ -12,6 +12,7 @@ public class CustomerService {
     private Customer currentCustomer;
     private Customer cunkuanCustomer;
     private Customer qukuanCustomer;
+    private boolean type;
 
     // 1. 查, 登录 判断账号密码是否正确
     public void  checkPwd(String cardid, String  cardPwd){
@@ -108,6 +109,12 @@ public class CustomerService {
             System.out.println("输入的金额不合法，请重新输入");
             doSaveMoney();
         }
+    }
+    //退卡（）
+    public void outCard() {
+        System.out.println("当前用户已退出！");
+        type = false;
+        System.exit(0);
     }
 
 
