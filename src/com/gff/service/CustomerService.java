@@ -10,8 +10,6 @@ import java.util.Scanner;
 public class CustomerService {
     private List<Customer> customerList;
     private Customer currentCustomer;
-    private Customer cunkuanCustomer;
-    private Customer qukuanCustomer;
     private boolean type;
 
     // 1. 查, 登录 判断账号密码是否正确
@@ -92,8 +90,8 @@ public class CustomerService {
     private void doGetMoney() {
         Scanner scanner = new Scanner(System.in);
         double money = scanner.nextDouble();
-        qukuanCustomer.setMoney(qukuanCustomer.getMoney() - money);
-        System.out.println("你当前的余额为：" + qukuanCustomer.getMoney());
+        currentCustomer.setMoney(currentCustomer.getMoney() - money);
+        System.out.println("你当前的余额为：" + currentCustomer.getMoney());
     }
 
     //  存款
@@ -103,8 +101,8 @@ public class CustomerService {
         Scanner sc = new Scanner(System.in);
         try {
             double money = sc.nextDouble();
-            cunkuanCustomer.setMoney(cunkuanCustomer.getMoney() + money);
-            System.out.println("你当前的余额为：" + cunkuanCustomer.getMoney());
+            currentCustomer.setMoney(currentCustomer.getMoney() + money);
+            System.out.println("你当前的余额为：" + currentCustomer.getMoney());
         } catch (Exception e) {
             System.out.println("输入的金额不合法，请重新输入");
             doSaveMoney();
