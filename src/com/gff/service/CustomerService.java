@@ -60,6 +60,7 @@ public class CustomerService {
                 break;
             case "5":
                 System.out.println("退卡");
+                outCard();
                 goOneHome();
                 break;
 
@@ -87,7 +88,6 @@ public class CustomerService {
     }
 
     // 取款
-    private boolean type;
   /*  private void doGetMoney() {
         Scanner scanner = new Scanner(System.in);
         double money = scanner.nextDouble();
@@ -128,7 +128,6 @@ public class CustomerService {
     //退卡（）
     public void outCard() {
         System.out.println("当前用户已退出！");
-        type = false;
         System.exit(0);
     }
 
