@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class CustomerService {
     private List<Customer> customerList;
     private Customer currentCustomer;
-    private boolean type;
+
 
     // 1. 查, 登录 判断账号密码是否正确
     public void  checkPwd(String cardid, String  cardPwd){
@@ -87,15 +87,32 @@ public class CustomerService {
     }
 
     // 取款
-    private void doGetMoney() {
+    private boolean type;
+  /*  private void doGetMoney() {
         Scanner scanner = new Scanner(System.in);
         double money = scanner.nextDouble();
         currentCustomer.setMoney(currentCustomer.getMoney() - money);
         System.out.println("你当前的余额为：" + currentCustomer.getMoney());
+    }*/
+    private void doGetMoney(){
+        TestUtil.getMoneyUI();
+        //1.让顾客输入
+        System.out.println("取款");
+        Scanner scanner = new Scanner(System.in);
+        String numIN = scanner.nextLine();
+        if (numIN.equals("1")){
+            //要顾客的钱数减去
+            double money = currentCustomer.getMoney();
+            money = money-100;
+            System.out.println("您的余额是：" + money);
+            //取过款项之后更新原有的存款
+            currentCustomer.setMoney(money);
+        }
+
     }
 
     //  存款
-    private void doSaveMoney() {
+   private void doSaveMoney() {
         System.out.println("请输入要存款的金额");
         // 输入存款金额
         Scanner sc = new Scanner(System.in);
